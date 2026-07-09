@@ -97,16 +97,17 @@
     <section class="giftcard-embed-section" id="buy-giftcard">
       <div class="container">
         <div class="giftcard-embed-container fade-in">
-          <iframe 
-            id="giftcard-system-iframe" 
-            allow="camera; microphone" 
-            width="100%" 
-            height="800" 
-            scrolling="yes" 
-            style="border: none; overflow-y: auto;"
-            src="https://webshoptest.globagift.io/globapay-mypizza?embedMode=widget_inline" 
-            provider="webframe"
-          ></iframe>
+          <iframe id="giftcard-system-iframe" allow="camera; microphone" width="100%" height="350" scrolling="no" src="https://webshop.globagift.io/globapay-test-account-mqynucoz?embedMode=widget_inline" provider="webframe"></iframe>
+          <script>
+          (function(){
+            function onMsg(e){
+              try{ if(!e || !e.data || !e.data.height) return; }catch(_) { return; }
+              var el = document.getElementById('giftcard-system-iframe');
+              if(el) el.setAttribute('height', String(e.data.height));
+            }
+            window.addEventListener('message', onMsg, false);
+          })();
+          </script>
         </div>
       </div>
     </section>
@@ -218,32 +219,11 @@
     </div>
   </footer>
 
-  <!-- ======== Gift Card Iframe Auto-resize Script ======== -->
-  <script>
-  (function(){
-    function onMsg(e){
-      try {
-        if (!e || !e.data) return;
-        var d = e.data;
-        // Globagift sends: { type: 'globagift:resize', height: <number> }
-        if (d.type === 'globagift:resize' && typeof d.height === 'number') {
-          var el = document.getElementById('giftcard-system-iframe');
-          if (el) {
-            el.style.height = d.height + 'px';
-            el.setAttribute('height', d.height);
-          }
-        }
-      } catch(_) {}
-    }
-    window.addEventListener('message', onMsg, false);
-  })();
-  </script>
-
   <!-- ======== Floating Gift Card Widget ======== -->
-  <script src="https://webshoptest.globagift.io/embed.js"></script>
+  <script src="https://webshop.globagift.io/embed.js"></script>
   <div 
     id="globagift-embed"
-    data-merchant="globapay-mypizza"
+    data-merchant="globapay-test-account-mqynucoz"
     data-embed="popup"
     data-position="bottom-right"
     data-launcher-label="Gift Cards"
