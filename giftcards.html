@@ -97,17 +97,16 @@
     <section class="giftcard-embed-section" id="buy-giftcard">
       <div class="container">
         <div class="giftcard-embed-container fade-in">
-          <iframe id="giftcard-system-iframe" allow="camera; microphone" width="100%" height="350" scrolling="no" src="https://webshop.globagift.io/globapay-test-account-mqynucoz?embedMode=widget_inline" provider="webframe"></iframe>
-          <script>
-          (function(){
-            function onMsg(e){
-              try{ if(!e || !e.data || !e.data.height) return; }catch(_) { return; }
-              var el = document.getElementById('giftcard-system-iframe');
-              if(el) el.setAttribute('height', String(e.data.height));
-            }
-            window.addEventListener('message', onMsg, false);
-          })();
-          </script>
+          <iframe 
+            id="giftcard-system-iframe" 
+            allow="camera; microphone" 
+            width="100%" 
+            height="1000" 
+            scrolling="yes" 
+            style="border: none; overflow-y: auto;"
+            src="https://webshop.globagift.io/globapay-test-account-mqynucoz?embedMode=widget_inline" 
+            provider="webframe"
+          ></iframe>
         </div>
       </div>
     </section>
